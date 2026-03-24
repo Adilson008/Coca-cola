@@ -1,0 +1,18 @@
+   Universo Coca-Cola | Experiência Imersiva
+Um projeto de front-end de alto impacto que transforma um site institucional em uma jornada interativa e gamificada. O objetivo é explorar a identidade visual da Coca-Cola através de tecnologias modernas de animação e engajamento do usuário.
+
+  Inovações e Diferenciais
+Sistema de Gamificação (XP): O usuário ganha pontos de experiência ao interagir com elementos do site, incentivando a exploração completa da página.
+
+Animações de Alto Nível: Uso da biblioteca GSAP (GreenSock) para criar efeitos de parallax, ScrollTrigger e microinterações fluidas.
+
+Simulação de Carreira: Um mini-game integrado que analisa o perfil do usuário e "desbloqueia" benefícios corporativos fictícios.
+
+Design Premium: Interface baseada em Glassmorphism, com suporte nativo a Modo Escuro e 100% responsiva.
+
+  Tecnologias Utilizadas
+HTML5 & CSS3: Estrutura semântica e estilização avançada com variáveis CSS.
+
+JavaScript (ES6+): Lógica de progressão, manipulação de DOM e motor de XP.
+
+GSAP Engine: Responsável por toda a camada visual dinâmica e interativa.
