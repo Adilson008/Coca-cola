@@ -1,0 +1,127 @@
+:root {
+    --coke-red: #F40009;
+    --coke-dark-red: #A60006;
+    --bg-light: #FFFFFF;
+    --text-light: #111111;
+    --bg-dark: #000000;
+    --text-dark: #F5F5F5;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body.dark-mode {
+    --bg-light: #121212;
+    --text-light: #EDEDED;
+    --glass-bg: rgba(0, 0, 0, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+body {
+    background-color: var(--bg-light); color: var(--text-light);
+    overflow-x: hidden; transition: background-color 0.5s ease;
+}
+
+/* Utilitários */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.text-center { text-align: center; }
+.mt-2 { margin-top: 20px; }
+.hidden { display: none; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+
+/* Botões Premium */
+.btn {
+    padding: 15px 35px; border: none; border-radius: 50px; cursor: pointer;
+    font-size: 1.1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
+    transition: var(--transition); position: relative; overflow: hidden;
+}
+.btn-red { background-color: var(--coke-red); color: white; box-shadow: 0 10px 20px rgba(244, 0, 9, 0.3); }
+.btn-red:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(244, 0, 9, 0.5); background-color: var(--coke-dark-red); }
+
+/* HUD e Navegação (Glassmorphism) */
+.hud-container {
+    position: fixed; top: 20px; right: 20px; z-index: 9999;
+    display: flex; gap: 20px; align-items: center;
+}
+.xp-bar {
+    background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); padding: 10px 20px; border-radius: 30px;
+    display: flex; flex-direction: column; align-items: center; color: var(--text-light); font-size: 0.8rem; font-weight: bold;
+}
+.progress { width: 150px; height: 8px; background: rgba(0,0,0,0.2); border-radius: 4px; margin: 5px 0; overflow: hidden; }
+.progress-fill { width: 0%; height: 100%; background: var(--coke-red); transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.btn-icon { background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; color: var(--text-light); transition: var(--transition); }
+.btn-icon:hover { background: var(--coke-red); color: white; }
+
+header {
+    position: fixed; top: 0; left: 0; width: 100%; padding: 25px 50px;
+    display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+    background: transparent; transition: var(--transition);
+}
+header.scrolled { background: var(--bg-light); box-shadow: 0 5px 20px rgba(0,0,0,0.05); padding: 15px 50px; }
+.logo { font-size: 1.8rem; font-weight: 900; color: var(--coke-red); text-transform: uppercase; letter-spacing: -1px; }
+.logo span { color: var(--text-light); font-weight: 300; }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text-light); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; transition: var(--transition); }
+.nav-links a:hover { color: var(--coke-red); }
+
+/* Panels / Sections */
+.panel { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 100px 0; }
+.section-title { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; color: var(--coke-red); }
+
+/* Hero */
+.hero {
+    background: radial-gradient(circle at center, var(--coke-red) 0%, #300000 100%);
+    color: white; overflow: hidden;
+}
+.hero-content { text-align: center; z-index: 10; }
+.hero h1 { font-size: 6rem; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 20px; }
+.hero p { font-size: 1.5rem; max-width: 600px; margin: 0 auto; font-weight: 300; }
+
+/* Bolhas / Efeitos Visuais */
+.bubble { position: absolute; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.1)); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.b1 { width: 150px; height: 150px; bottom: 10%; left: 15%; }
+.b2 { width: 80px; height: 80px; top: 20%; right: 20%; }
+.b3 { width: 200px; height: 200px; bottom: -5%; right: 10%; filter: blur(5px); }
+
+/* Showcase Interativo */
+.product-showcase { display: flex; justify-content: center; gap: 40px; margin-top: 50px; }
+.product-card {
+    position: relative; width: 250px; height: 350px; border-radius: 20px;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; overflow: hidden;
+}
+.product-card img { width: 80%; height: auto; transition: transform 0.5s ease; z-index: 1; }
+.product-card h3 { margin-top: 20px; z-index: 1; color: var(--text-light); }
+.product-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(244, 0, 9, 0.2); }
+.product-card:hover img { transform: scale(1.1) rotate(5deg); }
+.unlock-overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.7); color: white;
+    display: flex; align-items: center; justify-content: center; font-weight: bold;
+    opacity: 1; transition: opacity 0.5s ease; z-index: 2; backdrop-filter: blur(5px);
+}
+.product-card.unlocked .unlock-overlay { opacity: 0; pointer-events: none; }
+
+/* Grid de Benefícios Gamificada */
+.benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.benefit-card {
+    background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 15px;
+    padding: 30px; text-align: center; font-weight: bold; font-size: 1.2rem;
+    transition: var(--transition); position: relative;
+}
+.benefit-card.locked { color: #888; background: rgba(0,0,0,0.05); }
+.benefit-card.locked i { display: block; font-size: 2rem; margin-bottom: 10px; color: #aaa; }
+.benefit-card.unlocked { background: var(--coke-red); color: white; transform: scale(1.05); box-shadow: 0 10px 20px rgba(244,0,9,0.3); }
+
+.highlight-text { font-size: 1.2rem; color: var(--coke-red); font-weight: bold; }
+
+@media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3.5rem; }
+    .product-showcase { flex-direction: column; align-items: center; }
+    .nav-links { display: none; }
+}

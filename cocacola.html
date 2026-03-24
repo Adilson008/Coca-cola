@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Coca-Cola | Explore a Magia</title>
+    <link rel="stylesheet" href="stylee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="hud-container">
+        <div class="xp-bar">
+            <span>Nível Explorador</span>
+            <div class="progress"><div class="progress-fill" id="xp-fill"></div></div>
+            <span id="xp-text">0 / 100 XP</span>
+        </div>
+        <button id="theme-toggle" class="btn-icon"><i class="fas fa-moon"></i></button>
+    </div>
+
+    <header id="navbar">
+        <div class="logo">Coca-Cola <span>Universo</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#produtos">Inovação</a></li>
+            <li><a href="#carreiras">Carreiras Cola</a></li>
+            <li><a href="#comunidade">Comunidade</a></li>
+        </ul>
+    </header>
+
+    <section id="hero" class="panel hero">
+        <div class="hero-content">
+            <h1 class="glitch-text" data-text="Sinta a Magia">Sinta a Magia</h1>
+            <p>Não é apenas uma bebida. É um universo de experiências. Role para explorar e ganhe recompensas.</p>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="floating-element bubble b1"></div>
+        <div class="floating-element bubble b2"></div>
+        <div class="floating-element bubble b3"></div>
+    </section>
+
+    <section id="produtos" class="panel products">
+        <div class="container text-center">
+            <h2 class="section-title">Inovação Refrescante</h2>
+            <p>Clique nos produtos para descobrir os sabores e ganhar XP.</p>
+            
+            <div class="product-showcase">
+                <div class="product-card" onclick="gainXP(25, this)">
+                    <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=300&q=80" alt="Coca Original">
+                    <h3>Original</h3>
+                    <div class="unlock-overlay">Clique para revelar</div>
+                </div>
+                <div class="product-card" onclick="gainXP(25, this)">
+                    <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=300&q=80" alt="Coca Zero" style="filter: grayscale(100%) brightness(50%);">
+                    <h3>Zero Açúcar</h3>
+                    <div class="unlock-overlay">Clique para revelar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="carreiras" class="panel careers bg-darker">
+        <div class="container">
+            <div class="grid-2">
+                <div class="career-text">
+                    <h2 class="section-title">Faça Parte da História</h2>
+                    <p>Qual a sua vocação no nosso universo? Faça o teste rápido de perfil e descubra sua trilha.</p>
+                    <button class="btn btn-red mt-2" onclick="startProfileTest()">Iniciar Simulação</button>
+                    <p id="test-result" class="mt-2 hidden highlight-text"></p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card locked" id="ben-1"><i class="fas fa-lock"></i><span>Bônus Global</span></div>
+                    <div class="benefit-card locked" id="ben-2"><i class="fas fa-lock"></i><span>Trilha Flexível</span></div>
+                    <div class="benefit-card locked" id="ben-3"><i class="fas fa-lock"></i><span>Gympass Pro</span></div>
+                    <div class="benefit-card locked" id="ben-4"><i class="fas fa-lock"></i><span>Ações da Empresa</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="cocacola.js"></script>
+</body>
+</html>
